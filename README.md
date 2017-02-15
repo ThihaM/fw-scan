@@ -5,7 +5,7 @@ A firewall utility for various scanning and dictionary attack
 
 RPM based systems
 
-yum install epel-release
+[~]#yum install epel-release
 yum install php php-cli php-common screen sshpass git vim
 
 Deb based system
