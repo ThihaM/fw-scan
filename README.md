@@ -1,7 +1,7 @@
 # fw-scan
 A firewall utility for various scanning and dictionary attack
 
-# 1: Installation
+# 1: Installing Dependencies
 
 1.1 RPM based systems
 
@@ -19,13 +19,24 @@ A firewall utility for various scanning and dictionary attack
 
 [~]# cd fw-scan
 
-# 3: Using fw-scan
-
-Add log file location in config file
+# 3: Editing config file
 
 [~]# vim fw-scan.conf
 
 Add log file location of the desire services in 'Services' section of the fw-scan.conf
+
+Example fw-scan.conf
+
+[Services]
+; Monitor Asterisk PABX service
+
+ logfiles[] = '/var/log/asterisk/messages'
+
+; Monitor Apache HTTP service
+ logfiles[] = '/var/log/httpd/access_log'
+
+; Monitor Open SSH service
+ logfiles[] = '/var/log/secure'
 
 # 4: Running fw-scan.php
 
