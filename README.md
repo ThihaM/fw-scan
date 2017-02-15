@@ -29,15 +29,21 @@ Example fw-scan.conf
 
 [Services]
 
-; Monitor Asterisk PABX service
+;;;
+
+;; Monitor Asterisk PABX service
 
  logfiles[] = '/var/log/asterisk/messages'
 
-; Monitor Apache HTTP service
+;;;
+
+;; Monitor Apache HTTP service
 
  logfiles[] = '/var/log/httpd/access_log'
 
-; Monitor Open SSH service
+;;;
+
+;; Monitor Open SSH service
 
  logfiles[] = '/var/log/secure'
 
