@@ -5,24 +5,26 @@ A firewall utility for various scanning and dictionary attack
 
 RPM based systems
 
-[~]#yum install epel-release
-yum install php php-cli php-common screen sshpass git vim
+[~]# yum install epel-release
+
+[~]# yum install php php-cli php-common screen sshpass git vim
+
 
 Deb based system
 
 # Cloning repository
 
-cd /usr/src
+[~]# cd /usr/src
 
-git clone https://github.com/ThihaM/fw-scan.git
+[~]# git clone https://github.com/ThihaM/fw-scan.git
 
-cd fw-scan
+[~]# cd fw-scan
 
 # Using fw-scan
 
 Add log file location in config file
 
-vim fw-scan.conf
+[~]# vim fw-scan.conf
 
 Add log file location of the desire services in 'Services' section of the fw-scan.conf
 
