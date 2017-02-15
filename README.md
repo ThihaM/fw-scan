@@ -5,16 +5,16 @@ A firewall utility for various scanning and dictionary attack
 
 RPM based systems
 
-#yum install epel-release
-#yum install php php-cli php-common screen sshpass git vim
+yum install epel-release
+yum install php php-cli php-common screen sshpass git vim
 
 Deb based system
 
 # Cloning repository
 
-#cd /usr/src
-#git clone https://github.com/ThihaM/fw-scan.git
-#cd fw-scan
+cd /usr/src
+git clone https://github.com/ThihaM/fw-scan.git
+cd fw-scan
 
 # Using fw-scan
 
