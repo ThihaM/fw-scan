@@ -13,7 +13,9 @@ Deb based system
 # Cloning repository
 
 cd /usr/src
+
 git clone https://github.com/ThihaM/fw-scan.git
+
 cd fw-scan
 
 # Using fw-scan
@@ -21,6 +23,7 @@ cd fw-scan
 Add log file location in config file
 
 vim fw-scan.conf
+
 Add log file location of the desire services in 'Services' section of the fw-scan.conf
 
 # Runing fw-scan.php
