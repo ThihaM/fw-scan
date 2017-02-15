@@ -28,14 +28,17 @@ Add log file location of the desire services in 'Services' section of the fw-sca
 Example fw-scan.conf
 
 [Services]
+
 ; Monitor Asterisk PABX service
 
  logfiles[] = '/var/log/asterisk/messages'
 
 ; Monitor Apache HTTP service
+
  logfiles[] = '/var/log/httpd/access_log'
 
 ; Monitor Open SSH service
+
  logfiles[] = '/var/log/secure'
 
 # 4: Running fw-scan.php
