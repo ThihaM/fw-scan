@@ -13,7 +13,7 @@
      * @version 1.0
      */
   
-    define('DEBUG', 1);
+    define('DEBUG', 0);
 
     set_time_limit(0);
     
@@ -81,7 +81,20 @@
         return FALSE;
     }
 
-     /*
+    function is_reserved_ips($ip)
+    {
+        global $config;
+        
+        $reserved_ips = $config['Reserved-IPs']['ips'];
+        foreach ($reserved_ips as $uid=>$reserved_ip)
+        {
+            if ($reserved_ip === $ip) return TRUE;
+        }
+        
+        return FALSE;
+    }
+    
+    /*
      * Build firewall rule and do variable replacement
      *
      * @param Array  $fwconfig; Firewall configuration information
@@ -127,7 +140,7 @@
         if (!isset($fwconfig['host']) || !isset($fwconfig['uanme']) ||
             !isset($fwconfig['pass']) || !isset($fwconfig['rule'])) return;
             
-        $remotecmd = "/usr/bin/sshpass -p '{$fwconfig['pass']}' ssh {$fwconfig['uname']}@{$fwconfig['host']}";
+        $remotecmd = "/usr/bin/sshpass -p '{$fwconfig['pass']}' ssh -o 'BatchMode yes' {$fwconfig['uname']}@{$fwconfig['host']}";
         $fwcmd =  build_firewall_rule($fwconfig, $contrack);
         $rc = exec("$remotecmd $fwcmd > /dev/null 2>&1");
         
@@ -253,7 +266,9 @@
             
             $source_ip = extract_src_ipaddr($message);
             if ($source_ip === NULL || $localip == $source_ip) continue;
-
+            
+            if (is_reserved_ips($source_ip)) continue;
+            
             $contrack = extract_socket_info($source_ip);
             if ($contrack) push_firewall_rule($contrack);
             
